@@ -34,7 +34,7 @@ http.createServer(function (req, res) {
 
    console.log(JSON.stringify(queryAsObject));
 //   console.log("party= == " + queryAsObject.party);
-    res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://localhost:3000'});
+    res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com/'});
     if (!isEmpty(queryAsObject)){
         var isTrueSet = (queryAsObject.party === 'true');
         flag =isTrueSet;

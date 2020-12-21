@@ -7,7 +7,7 @@
 
 
 
-### Command to upload to github
+### Command to upload to github:
 npx gitignore node ---- just if exist node modules on the git status
 
 1. git status -- now there no need to be node modules

@@ -1,3 +1,6 @@
+
+
+//////////////////// old one  /////////////////////////////////////
 // const express = require('express');
 // const app =express();
 
@@ -17,34 +20,51 @@
 
 
 
-var http = require('http');
-var url = require("url");
+//////////////////// webSocket Try  /////////////////////////////////////
+const WebSocket = require('ws')
 
-var flag = false;
-var i =1;
-// setTimeout(()=>{
-//     flag = true;
-// },10000)
-http.createServer(function (req, res) {
-    console.log("got request " + i);
-    i++;
+const wss = new WebSocket.Server({ port: 8080 })
 
-    var parsedUrl = url.parse(req.url, true); // true to get query as object
-  var queryAsObject = parsedUrl.query;
-
-   console.log(JSON.stringify(queryAsObject));
-//   console.log("party= == " + queryAsObject.party);
-    // res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://localhost:3000'});
-    res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'});
-    if (!isEmpty(queryAsObject)){
-        var isTrueSet = (queryAsObject.party === 'true');
-        flag =isTrueSet;
-    }
-    res.end(JSON.stringify({ ans: flag }));
-}).listen(8080);
-console.log("server is listening");
+wss.on('connection', ws => {
+  ws.on('message', message => {
+    console.log(`Received message => ${message}`)
+  })
+  ws.send('ho!')
+})
 
 
-function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-}
+
+
+
+//////////////////// new one  /////////////////////////////////////
+// var http = require('http');
+// var url = require("url");
+
+// var flag = false;
+// var i =1;
+// // setTimeout(()=>{
+// //     flag = true;
+// // },10000)
+// http.createServer(function (req, res) {
+//     console.log("got request " + i);
+//     i++;
+
+//     var parsedUrl = url.parse(req.url, true); // true to get query as object
+//   var queryAsObject = parsedUrl.query;
+
+//    console.log(JSON.stringify(queryAsObject));
+// //   console.log("party= == " + queryAsObject.party);
+//     // res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://localhost:3000'});
+//     res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'});
+//     if (!isEmpty(queryAsObject)){
+//         var isTrueSet = (queryAsObject.party === 'true');
+//         flag =isTrueSet;
+//     }
+//     res.end(JSON.stringify({ ans: flag }));
+// }).listen(8080);
+// console.log("server is listening");
+
+
+// function isEmpty(obj) {
+//     return Object.keys(obj).length === 0;
+// }

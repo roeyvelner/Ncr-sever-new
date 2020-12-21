@@ -30,32 +30,33 @@ wss.on('connection', ws => {
     console.log(`Received message => ${message}`)
   })
 
-  setInterval(()=>{
-    var num = Math.floor(Math.random() * 10);  
-    switch (num){
-        case 1:
-            ws.send('שלום אלי');
-            break;
-        case 2:
-            ws.send('שלום רועי');
-            break;
+  
+//   setInterval(()=>{
+//     var num = Math.floor(Math.random() * 10);  
+//     switch (num){
+//         case 1:
+//             ws.send('שלום אלי');
+//             break;
+//         case 2:
+//             ws.send('שלום רועי');
+//             break;
             
-        case 3:
-            ws.send('שלום בובה');
-            break;
-        case 4:
-            ws.send('שלום משה');
-            break;
+//         case 3:
+//             ws.send('שלום בובה');
+//             break;
+//         case 4:
+//             ws.send('שלום משה');
+//             break;
 
-        case 5:
-            ws.send('שלום איתי');
-            break;
-        case 6:
-            ws.send('שלום אסף');
-            break;
-        default:
-    }
-  },10000)
+//         case 5:
+//             ws.send('שלום איתי');
+//             break;
+//         case 6:
+//             ws.send('שלום אסף');
+//             break;
+//         default:
+//     }
+//   },10000)
 
 
   ws.send('ho!')

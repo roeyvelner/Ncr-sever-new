@@ -4,15 +4,20 @@
 ### local path - C:\Users\User\MyReactApp\newServer
 ### this is the project connect to React app
 
-git init
-git status 
 
+
+
+### Command to upload to github
 npx gitignore node ---- just if exist node modules on the git status
 
-git status -- now there no need to be node modules
+1. git status -- now there no need to be node modules
 
-git status  --show all files has changes
-git add app.js -- add app.js file
-git add .     -- add all files that have changes
-git commit -m "Change ReadMe"   -- where  "Change ReadMe" is the comment
-git push origin main --push the commit
+2. git status  --show all files has changes
+
+3. git add app.js -- add app.js file
+
+4. git add .     -- add all files that have changes
+
+5. git commit -m "Change ReadMe"   -- where  "Change ReadMe" is the comment
+
+6. git push origin main --push the commit

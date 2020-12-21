@@ -1,4 +1,8 @@
-"# Ncr-sever-new" 
+"# Ncr-sever-new"    
+
+###
+local path - C:\Users\User\MyReactApp\newServer
+this is the project connect to React app
 
 git init
 git status 

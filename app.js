@@ -25,11 +25,15 @@ var http = require('http');
 var url = require("url");
 const WebSocket = require('ws')
 
+console.log("before open webSocket");
+
 const wss = new WebSocket.Server({ port: 8083 })
+
+console.log("after open webSocket");
 
 wss.on('connection', ws => {
 
-
+    console.log("has connection ");
     http.createServer(function (req, res) {
         console.log("got request " + i);
         i++;
@@ -52,16 +56,17 @@ wss.on('connection', ws => {
         res.end(JSON.stringify({ ans: flag }));
     }).listen(8080);
 
+    console.log("start http server on 8080");
 
 
 
-  ws.on('message', message => {
-    console.log(`Received message => ${message}`)
+//   ws.on('message', message => {
+//     console.log(`Received message => ${message}`)
 
-    if (message === 'Start Sale'){
+//     if (message === 'Start Sale'){
 
-    }
-  })
+//     }
+//   })
 
 /**
 //   setInterval(()=>{

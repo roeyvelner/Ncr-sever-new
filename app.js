@@ -19,38 +19,44 @@
 
 //
 
-var WebSocketServer = require('websocket').server;
-var express         = require('express');
-var app             = express();
-var server          = app.listen(8080);
-var wsServer        = new WebSocketServer({ httpServer : server });
-
-// this will make Express serve your static files
-app.use(express.static(__dirname + '/public'));
-
-app.get('/', (req,res)=>{
-    res.send("Welcome");
-});
 
 
-// the rest of your code
-wsServer.on('request', function(r) {
-    var connection = request.accept('echo-protocol', request.origin);
-    console.log((new Date()) + ' Connection accepted.');
-    connection.on('message', function(message) {
-        if (message.type === 'utf8') {
-            console.log('Received Message: ' + message.utf8Data);
-            connection.sendUTF(message.utf8Data);
-        }
-        else if (message.type === 'binary') {
-            console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
-            connection.sendBytes(message.binaryData);
-        }
-    });
-    connection.on('close', function(reasonCode, description) {
-        console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
-    });
-});
+
+
+
+// ///  WebSocket with express server/////
+// var WebSocketServer = require('websocket').server;
+// var express         = require('express');
+// var app             = express();
+// var server          = app.listen(8080);
+// var wsServer        = new WebSocketServer({ httpServer : server });
+
+// // this will make Express serve your static files
+// app.use(express.static(__dirname + '/public'));
+
+// app.get('/', (req,res)=>{
+//     res.send("Welcome");
+// });
+
+
+// // the rest of your code
+// wsServer.on('request', function(r) {
+//     var connection = request.accept('echo-protocol', request.origin);
+//     console.log((new Date()) + ' Connection accepted.');
+//     connection.on('message', function(message) {
+//         if (message.type === 'utf8') {
+//             console.log('Received Message: ' + message.utf8Data);
+//             connection.sendUTF(message.utf8Data);
+//         }
+//         else if (message.type === 'binary') {
+//             console.log('Received Binary Message of ' + message.binaryData.length + ' bytes');
+//             connection.sendBytes(message.binaryData);
+//         }
+//     });
+//     connection.on('close', function(reasonCode, description) {
+//         console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
+//     });
+// });
 
 
 // //////////////////// webSocket  first   Try  /////////////////////////////////////
@@ -140,33 +146,33 @@ wsServer.on('request', function(r) {
 
 
 
-// //////////////////// new one  /////////////////////////////////////
-// var http = require('http');
-// var url = require("url");
+//////////////////// new one  /////////////////////////////////////
+var http = require('http');
+var url = require("url");
 
-// var flag = false;
-// var i =1;
-// // setTimeout(()=>{
-// //     flag = true;
-// // },10000)
-// http.createServer(function (req, res) {
-//     console.log("got request " + i);
-//     i++;
+var flag = false;
+var i =1;
+// setTimeout(()=>{
+//     flag = true;
+// },10000)
+http.createServer(function (req, res) {
+    console.log("got request " + i);
+    i++;
 
-//     var parsedUrl = url.parse(req.url, true); // true to get query as object
-//   var queryAsObject = parsedUrl.query;
+    var parsedUrl = url.parse(req.url, true); // true to get query as object
+  var queryAsObject = parsedUrl.query;
 
-//    console.log(JSON.stringify(queryAsObject));
-// //   console.log("party= == " + queryAsObject.party);
-//     // res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://localhost:3000'});
-//     res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'});
-//     if (!isEmpty(queryAsObject)){
-//         var isTrueSet = (queryAsObject.party === 'true');
-//         flag =isTrueSet;
-//     }
-//     res.end(JSON.stringify({ ans: flag }));
-// }).listen(8080);
-// console.log("server is listening");
+   console.log(JSON.stringify(queryAsObject));
+//   console.log("party= == " + queryAsObject.party);
+    // res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://localhost:3000'});
+    res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'});
+    if (!isEmpty(queryAsObject)){
+        var isTrueSet = (queryAsObject.party === 'true');
+        flag =isTrueSet;
+    }
+    res.end(JSON.stringify({ ans: flag }));
+}).listen(8080);
+console.log("server is listening");
 
 
 function isEmpty(obj) {

@@ -27,7 +27,7 @@ const WebSocket = require('ws')
 
 console.log("before open webSocket");
 
-const wss = new WebSocket.Server({ port: 8083 })
+const wss = new WebSocket.Server({ port: 8080 })
 
 console.log("after open webSocket");
 
@@ -54,7 +54,7 @@ wss.on('connection', ws => {
         else
             ws.send("סיום מכירה");
         res.end(JSON.stringify({ ans: flag }));
-    }).listen(8080);
+    }).listen(8083);
 
     console.log("start http server on 8080");
 

@@ -21,9 +21,10 @@
 
 
 //////////////////// webSocket Try  /////////////////////////////////////
+const WebSocket = require('ws')
 var http = require('http');
 var url = require("url");
-const WebSocket = require('ws')
+
 
 console.log("before open webSocket");
 

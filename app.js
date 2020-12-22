@@ -166,10 +166,11 @@ http.createServer(function (req, res) {
 //   console.log("party= == " + queryAsObject.party);
     // res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://localhost:3000'});
     res.writeHead(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'});
-    if (!isEmpty(queryAsObject)){
-        var isTrueSet = (queryAsObject.party === 'true');
-        flag =isTrueSet;
-    }
+    // if (!isEmpty(queryAsObject)){
+    //     var isTrueSet = (queryAsObject.party === 'true');
+    //     flag =isTrueSet;
+    // }
+    flag = !flag;
     res.end(JSON.stringify({ ans: flag }));
 }).listen(8080);
 console.log("server is listening");

@@ -26,7 +26,7 @@ var server          = app.listen(8080);
 var wsServer        = new WebSocketServer({ httpServer : server });
 
 // this will make Express serve your static files
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname));
 
 app.get('/', (req,res)=>{
     res.send("Welcome");

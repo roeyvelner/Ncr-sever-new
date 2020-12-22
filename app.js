@@ -26,7 +26,7 @@ var server          = app.listen(8080);
 var wsServer        = new WebSocketServer({ httpServer : server });
 
 // this will make Express serve your static files
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req,res)=>{
     res.send("Welcome");
@@ -50,7 +50,7 @@ wsServer.on('request', function(r) {
     connection.on('close', function(reasonCode, description) {
         console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected.');
     });
-}
+});
 
 
 // //////////////////// webSocket  first   Try  /////////////////////////////////////

@@ -7,7 +7,6 @@ const app =express();
 var flag = false;
 
 app.get('/', (req,res)=>{
-    flag = ! flag;
     res.set({'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'})
     
     res.send(JSON.stringify({ ans: flag }));

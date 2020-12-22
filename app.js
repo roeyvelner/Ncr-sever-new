@@ -8,12 +8,15 @@ var flag = false;
 
 app.get('/', (req,res)=>{
     flag = ! flag;
-    res.header(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'});
+    res.set('Content-Type', 'application/json')
+    res.set('Access-Control-Allow-Origin', 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com');
     res.send(JSON.stringify({ ans: flag }));
 });
 
 app.get('/changeFlag', (req,res)=>{
-    res.header(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'});
+    //res.header(200, {'Content-Type': 'application/json','Access-Control-Allow-Origin': 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com'});
+    res.set('Content-Type', 'application/json')
+    res.set('Access-Control-Allow-Origin', 'http://ncr-raanana.s3-website.us-east-2.amazonaws.com');
     res.send(JSON.stringify({ ans: flag }));
 });
 
